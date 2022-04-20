@@ -2,12 +2,14 @@ const path = require('path');
 const { PassThrough } = require('stream');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const FileLoader = require('file-loader');
 
-module.exports ={
+module.exports = {
     entry: './src/index.js',
-    output:{
+    output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
+        publicPath: '/'
     },
     mode: 'development',
     resolve: {
@@ -37,6 +39,15 @@ module.exports ={
                     "css-loader",
                     "sass-loader"
                 ]
+            },
+            {
+                test: /\.(png|jpg|gif)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {}
+                    }
+                ]
             }
         ]
     },
@@ -49,11 +60,7 @@ module.exports ={
             filename: '[name].css'
         })
     ],
-    /*
-    devServer:{
-        static:'./dist/index.html',
-        compress:true,
-        historyApiFallback:true,
-        port:3005,
-    }*/
+    devServer: {
+        historyApiFallback: true
+    }
 }
