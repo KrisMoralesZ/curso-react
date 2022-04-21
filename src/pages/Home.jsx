@@ -1,12 +1,15 @@
 import React from 'react'
+import Header from '../componets/Header';
+import Menu from '../componets/Menu'
 
 const Home = () => {
     return(
         <div>
-            <h1>
-                hello
-            </h1>
+            <Header />
+            <Menu />
         </div>
+        
     );
 }
 export default Home;
+
