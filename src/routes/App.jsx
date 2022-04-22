@@ -1,13 +1,19 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Router } from 'react-router-dom'
 import Layout from '../containers/Layout';
-import Login from '../componets/Login';
+import Login from '../pages/Login';
 import '../styles/global.css'
-import RecoveryPassword from '../containers/RecoveryPassword';
+import RecoveryPassword from '../pages/RecoveryPassword';
 import Home from '../pages/Home';
 import NotFound from '../pages/NotFound';
-import CreateUser from '../componets/CreateUser';
-import Account from '../componets/Account';
+import CreateUser from '../components/CreateUser';
+import Account from '../components/Account';
+import NewPassWord from '../pages/NewPassword';
+import CreateAccount from '../pages/CreateAccount';
+import Orders from '../pages/Orders';
+import MyAccount from '../pages/MyAccount';
+import Checkout from '../pages/Checkout';
+import SendEmail from '../pages/SendEmail';
 
 const App = () => {
     return (
@@ -19,6 +25,12 @@ const App = () => {
                     <Route exact path="/recovery-password" element={<RecoveryPassword />} />
                     <Route exact path='/create-user' element={<CreateUser />} />
                     <Route exact path='/account' element={<Account />} />
+                    <Route exact path='/new-password' element={<NewPassWord />} />
+                    <Route exact path='/create-account' element={<CreateAccount />} />
+                    <Route exact path='/orders' element={<Orders/>} />
+                    <Route exact path='/my-account' element={<MyAccount/>} />
+                    <Route exact path='/checkout' element={<Checkout/>} />
+                    <Route exact path='/send-email' element={<SendEmail/>} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </Layout>
