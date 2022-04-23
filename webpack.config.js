@@ -2,7 +2,6 @@ const path = require('path');
 const { PassThrough } = require('stream');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const FileLoader = require('file-loader');
 
 module.exports = {
     entry: './src/index.js',
@@ -19,7 +18,8 @@ module.exports = {
             '@containers': path.resolve(__dirname, 'src/containers/'),
             '@styles': path.resolve(__dirname, 'src/styles/'),
             '@icons': path.resolve(__dirname, 'src/assets/icons/'),
-            '@logos':path.resolve(__dirname, 'src/assets/logos/')
+            '@logos':path.resolve(__dirname, 'src/assets/logos/'),
+            '@img':path.resolve(__dirname, 'src/assets/img/'),
         }
     },
     module: {
@@ -49,13 +49,7 @@ module.exports = {
             },
             {
                 test: /\.(png|jpg|gif|svg)$/,
-                type: 'asset',
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {}
-                    }
-                ]
+                type: 'asset'
             }
         ]
     },
