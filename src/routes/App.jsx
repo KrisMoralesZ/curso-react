@@ -14,10 +14,14 @@ import Orders from '../pages/Orders';
 import MyAccount from '../pages/MyAccount';
 import Checkout from '../pages/Checkout';
 import SendEmail from '../pages/SendEmail';
+import AppContext from '../context/AppContext';
+import useInitialState from '../hooks/useInitialState';
 
 const App = () => {
+    const initialState = useInitialState();
     return (
-        <BrowserRouter>
+        <AppContext.Provider value={initialState}>
+            <BrowserRouter>
             <Layout>
                 <Routes>
                     <Route exact path="/" element={<Home />} />
@@ -35,7 +39,7 @@ const App = () => {
                 </Routes>
             </Layout>
         </BrowserRouter>
-
+        </AppContext.Provider>
     );
 }
 export default App;

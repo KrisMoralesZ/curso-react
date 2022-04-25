@@ -1,6 +1,6 @@
 import React from "react";
 import '../styles/NotFound.scss'
-import Image from'../assets/Not-Found.jpg';
+import Image from'@img/Not-Found.jpg';
 
 
 const NotFound = () => {
