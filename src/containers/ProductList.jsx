@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import ProductItem from '../components/ProductItem';
 import useGetProducts from '../hooks/useGetProducts';
 import '../styles/ProductList.scss';
+import axios from 'axios';
 
-const API='https://api.escuelajs.co/api/v1/products';
+const API ='http://localhost:3000/';
 
 const ProductList = () => {
     const products = useGetProducts(API);
